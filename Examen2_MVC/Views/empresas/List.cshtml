@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Examen2_MVC.Models.empresa>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre Empresa
+        </th>
+        <th>
+            Ruc
+        </th>
+        <th>
+           Telefono
+        </th>
+        <th>
+            Celular
+        </th>
+        <th>
+           Direccion
+        </th>
+        
+        <th>
+            Accion
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreempresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ruc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+       
+        <td>
+            @Ajax.ActionLink("Editar", "Edit", new { @id=item.idempresa },new AjaxOptions {
+                     HttpMethod="GET",
+                     InsertionMode = InsertionMode.Replace,
+                     UpdateTargetId = "contenido_modal",
+                     OnSuccess = "abrirModal('#modal_edit_empresa')",
+                 })|
+            @Ajax.ActionLink("Eliminar", "Delete",new {@id=item.idempresa }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "contenido_modal",
+           OnSuccess = "abrirModal('#modal_eliminar_empresa')",
+
+
+       })|
+
+            @Ajax.ActionLink("Crear Sede", "Sede",new {@id=item.idempresa }, new AjaxOptions
+ {
+     HttpMethod = "GET",
+     InsertionMode = InsertionMode.Replace,
+     UpdateTargetId = "contenido_modal",
+     OnSuccess = "abrirModal('#modal_crear_sede')",
+
+
+ })
+            |        @Ajax.ActionLink("Listar Sede", "ListarSede",new {@id=item.idempresa }, new AjaxOptions
+{
+HttpMethod = "GET",
+InsertionMode = InsertionMode.Replace,
+UpdateTargetId = "contenido_modal",
+OnSuccess = "abrirModal('#modal_lista_sede')",
+
+
+})
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,33 @@
+﻿@model Examen2_MVC.Models.usuario
+
+<div class="modal fade" id="modal_eliminar_usuario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Estas Seguro De Eliminar Esta Usuario</h4>
+            </div>
+            @using (Ajax.BeginForm("Delete", "Usuarios", new AjaxOptions()
+            {
+                HttpMethod = "POST",
+                UpdateTargetId = "listar_usuario",
+                OnSuccess = "mensajeCrear('#modal_eliminar_usuario')"
+            }))
+            {
+                <div class="modal-body">
+
+
+
+                    @Html.AntiForgeryToken()
+                    @Html.DisplayFor(model => Model.nombreusuario)
+                    @Html.HiddenFor(model => Model.idusuario)
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-outline">Eliminar</button>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Examen2_MVC.Models.comunicacion>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombrecomunicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Ajax.ActionLink("Eliminar", "EliminarComunicacion", new {@id=item.idtipocomunicacion,@nom = item.nombrecomunicacion }, new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "listar_comunicacion",
+
+})
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

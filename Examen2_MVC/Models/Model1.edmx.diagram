@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e135cd28b5a64c01b4ac81e69e5fffcc" Name="Diagram1">
+        <EntityTypeShape EntityType="GrupoNetModel.cargo" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.categoria" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.compra" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.comunicacion" Width="1.5" PointX="16" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.detallecompra" Width="1.5" PointX="12.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.empleado" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.empresa" Width="1.5" PointX="11.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.marca" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.persona" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.producto" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.proveedor" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.sede" Width="1.5" PointX="13.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.subcategoria" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.tipodecomunicacion" Width="1.5" PointX="13.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.tipodocumento" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.tipousuario" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.unidaddemedida" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.usuario" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GrupoNetModel.venta" Width="1.5" PointX="15.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="GrupoNetModel.FK__empleado__idcarg__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__subcatego__idcat__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__compra__idprovee__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__compra__idusuari__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__detalleco__idcom__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__comunicac__idtip__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__detalleco__idpro__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__empleado__idpers__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__empleado__idsede__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__sede__idempresa__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__producto__idmarc__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__persona__idtipid__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__proveedor__idper__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__usuario__idperso__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__producto__idsubc__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__producto__idunid__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__producto__idusua__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__sede__idusuario__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__venta__idsede__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__usuario__idtipou__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="GrupoNetModel.FK__venta__idusuraio__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

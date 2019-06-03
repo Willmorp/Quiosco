@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Examen2_MVC.Models.usuario>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre Usuario
+        </th>
+        <th>
+            Nombre Persona
+        </th>
+        
+        <th>
+           Dni
+        </th>
+        <th>
+            Tipo De Usuario
+        </th>
+        <th>
+            Accion
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreusuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.persona.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.persona.dni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipousuario.nombretipousuario)
+        </td>
+        <td>
+            @Ajax.ActionLink("Editar", "Edit", new { @id=item.idusuario },new AjaxOptions {
+              HttpMethod="GET",
+              InsertionMode = InsertionMode.Replace,
+              UpdateTargetId = "contenido_modal",
+              OnSuccess = "abrirModal('#modal_edit_usuario')",
+          })|
+            @Ajax.ActionLink("Eliminar", "Delete",new {@id=item.idusuario }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "contenido_modal",
+           OnSuccess = "abrirModal('#modal_eliminar_usuario')",
+
+
+       })
+        </td>
+    </tr>
+}
+
+</table>

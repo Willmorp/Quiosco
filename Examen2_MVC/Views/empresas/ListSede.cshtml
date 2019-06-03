@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Examen2_MVC.Models.sede>
+
+
+<table class="table">
+    <tr>
+        <th>
+          Nombre Sede
+        </th>
+        <th>
+            Nombre Empresa
+        </th>
+        <th>
+           Nombre Usuario
+        </th>
+        <th>
+            Accion
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombresede)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empresa.nombreempresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario.nombreusuario)
+        </td>
+        <td>
+            @Ajax.ActionLink("Eliminar", "DeleteSede", new {@id=item.idsede,@idempresa=item.idempresa }, new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "listar_sedes",
+            OnSuccess = "abrirModal('#modal_eliminar_sede')",
+
+
+        })
+        </td>
+    </tr>
+}
+
+</table>

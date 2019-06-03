@@ -1,0 +1,93 @@
+﻿@model Examen2_MVC.Models.comunicacion
+
+<div class="modal fade" id="modal_crear_comunicacion">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Crear Comunicacion</h4>
+            </div>
+            @using (Ajax.BeginForm("CrearComunicacion", "Personas", new AjaxOptions()
+            {
+                HttpMethod = "POST",
+                UpdateTargetId = "listar_persona",
+                OnSuccess = "mensajeCrear('#modal_crear_comunicacion')"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                             <span>Nombre Comunicacion</span>
+                                    @Html.EditorFor(model => model.nombrecomunicacion, new { htmlAttributes = new { @class = "form-control",@id="nombre" } })
+                                    @Html.ValidationMessageFor(model => model.nombrecomunicacion, "", new { @class = "text-danger" })
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                              <span>Tipo de Comunicacion</span>
+                                    @Html.DropDownList("idtipocomunicacion", null, htmlAttributes: new { @class = "form-control",@id = "idtipocomunicacion" })
+                                    @Html.ValidationMessageFor(model => model.idtipocomunicacion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <button class="btn btn-primary" type="button" onclick="agregarComunicacion()">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th>
+                                    Tipo Comunicacion
+                                </th>
+                                <th>
+                                    Accion
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="listar_comunicacion">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+            }
+        </div>
+    </div>
+    <script>
+        function agregarComunicacion() {
+            var nombre = document.getElementById("nombre").value;
+            var idtipocomunicacion = document.getElementById("idtipocomunicacion").value;
+            var nombretipocomunicacion = $("#idtipocomunicacion").val();
+            
+            $.ajax({
+                dataType: "html",
+                type: "get",
+                url: "/personas/llenarcomunicacion",
+                data: { nom: nombre, idtipo: idtipocomunicacion},
+
+                success: function (dados) {
+
+                    $("#listar_comunicacion").html(dados);
+
+                }
+            });
+        }
+    </script>
+</div>
+

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Examen2_MVC.Models.persona>
+
+<table class="table">
+    <tr>
+        <th>
+           Dni
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Fecha Nacimiento
+        </th>
+        <th>
+            Direccion
+        </th>
+        <th>
+            Tipo Documento
+        </th>
+        <th>
+            Accion
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechanacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipodocumento.nombretipodocumento)
+        </td>
+        <td>
+            @Ajax.ActionLink("Editar", "Edit", new { @id=item.idpersona },new AjaxOptions {
+               HttpMethod="GET",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = "contenido_modal",
+               OnSuccess = "abrirModal('#modal_edit_persona')",
+           })|
+            @Ajax.ActionLink("Eliminar", "Delete",new {@id=item.idpersona }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "contenido_modal",
+           OnSuccess = "abrirModal('#modal_eliminar_persona')",
+
+
+       })|
+
+            @Ajax.ActionLink("Comunicacion", "CrearComunicacion", new {@id=item.idpersona }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "contenido_modal",
+           OnSuccess = "abrirModal('#modal_crear_comunicacion')",
+
+
+       })|
+
+            @Ajax.ActionLink("Listar Comunicacion", "ListarComunicacion", new {@id=item.idpersona }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "contenido_modal",
+           OnSuccess = "abrirModal('#modal_lista_comunicacion')",
+
+
+       })
+
+            
+        </td>
+    </tr>
+}
+
+</table>

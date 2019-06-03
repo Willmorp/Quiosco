@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Examen2_MVC.Models.comunicacion>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombrecomunicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipodecomunicacion.nombretipocomunicacion)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombrecomunicacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+     
+    </tr>
+}
+
+</table>
