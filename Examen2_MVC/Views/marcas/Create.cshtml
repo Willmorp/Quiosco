@@ -1,0 +1,51 @@
+﻿@model Examen2_MVC.Models.marca
+
+
+<div class="modal fade" id="modal_crear_marca">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Crear Empresa</h4>
+            </div>
+            @using (Ajax.BeginForm("Create", "marcas", new AjaxOptions()
+            {
+                HttpMethod = "POST",
+                UpdateTargetId = "listar_marca",
+                OnSuccess = "mensajeCrear('#modal_crear_marca')"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <div class="form-group">
+                                <span>Unidad de Medida</span>
+                                @Html.EditorFor(model => model.nombremarca, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.nombremarca, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+            }
+        </div>
+    </div>
+
+</div>

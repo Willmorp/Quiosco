@@ -1,0 +1,26 @@
+﻿@model Examen2_MVC.Models.unidaddemedida
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>unidaddemedida</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreunidaddemedida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreunidaddemedida)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idunidaddemedida }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -134,11 +134,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\categoriasController.cs" />
     <Compile Include="Controllers\empresasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginDueñoController.cs" />
+    <Compile Include="Controllers\marcasController.cs" />
     <Compile Include="Controllers\personasController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\PrincipalDueñoController.cs" />
+    <Compile Include="Controllers\productoesController.cs" />
+    <Compile Include="Controllers\subcategoriasController.cs" />
+    <Compile Include="Controllers\unidaddemedidasController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -310,6 +317,38 @@
     <Content Include="Views\personas\ListarComunicacion.cshtml" />
     <Content Include="Views\personas\ListComunicacion.cshtml" />
     <Content Include="Views\Principal\Index.cshtml" />
+    <Content Include="Views\marcas\Create.cshtml" />
+    <Content Include="Views\marcas\Delete.cshtml" />
+    <Content Include="Views\marcas\Details.cshtml" />
+    <Content Include="Views\marcas\Edit.cshtml" />
+    <Content Include="Views\marcas\Index.cshtml" />
+    <Content Include="Views\unidaddemedidas\Create.cshtml" />
+    <Content Include="Views\unidaddemedidas\Delete.cshtml" />
+    <Content Include="Views\unidaddemedidas\Details.cshtml" />
+    <Content Include="Views\unidaddemedidas\Edit.cshtml" />
+    <Content Include="Views\unidaddemedidas\Index.cshtml" />
+    <Content Include="Views\categorias\Create.cshtml" />
+    <Content Include="Views\categorias\Delete.cshtml" />
+    <Content Include="Views\categorias\Details.cshtml" />
+    <Content Include="Views\categorias\Edit.cshtml" />
+    <Content Include="Views\categorias\Index.cshtml" />
+    <Content Include="Views\subcategorias\Create.cshtml" />
+    <Content Include="Views\subcategorias\Delete.cshtml" />
+    <Content Include="Views\subcategorias\Details.cshtml" />
+    <Content Include="Views\subcategorias\Edit.cshtml" />
+    <Content Include="Views\subcategorias\Index.cshtml" />
+    <Content Include="Views\productoes\Create.cshtml" />
+    <Content Include="Views\productoes\Delete.cshtml" />
+    <Content Include="Views\productoes\Details.cshtml" />
+    <Content Include="Views\productoes\Edit.cshtml" />
+    <Content Include="Views\productoes\Index.cshtml" />
+    <Content Include="Views\LoginDueño\Index.cshtml" />
+    <Content Include="Views\PrincipalDueño\Index.cshtml" />
+    <Content Include="Views\unidaddemedidas\List.cshtml" />
+    <Content Include="Views\marcas\List.cshtml" />
+    <Content Include="Views\categorias\List.cshtml" />
+    <Content Include="Views\subcategorias\List.cshtml" />
+    <Content Include="Views\productoes\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

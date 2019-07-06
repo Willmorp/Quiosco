@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Examen2_MVC.Models.subcategoria>
+
+@{
+    Layout = null;
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombresubcategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categoria.nombrecategoria)
+        </th>
+        <th>
+            Accion
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombresubcategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoria.nombrecategoria)
+            </td>
+            <td>
+                @Ajax.ActionLink("Editar", "Edit", new { @id=item.idsubcategoria },new AjaxOptions {
+                             HttpMethod="GET",
+                             InsertionMode = InsertionMode.Replace,
+                             UpdateTargetId = "contenido_modal",
+                             OnSuccess = "abrirModal('#modal_editar_subcategoria')",
+                         })|
+                @Ajax.ActionLink("Eliminar", "Delete",new {@id=item.idsubcategoria }, new AjaxOptions
+           {
+               HttpMethod = "GET",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = "contenido_modal",
+               OnSuccess = "abrirModal('#modal_eliminar_subcategoria')",
+
+
+           })
+            </td>
+        </tr>
+    }
+
+</table>

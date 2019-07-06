@@ -1,0 +1,88 @@
+﻿@model Examen2_MVC.Models.producto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreproducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreproducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioorigen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioorigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioventa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioventa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marca.nombremarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca.nombremarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subcategoria.nombresubcategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subcategoria.nombresubcategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unidaddemedida.nombreunidaddemedida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unidaddemedida.nombreunidaddemedida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombreusuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nombreusuario)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

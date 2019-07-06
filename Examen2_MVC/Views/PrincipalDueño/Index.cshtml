@@ -1,0 +1,232 @@
+﻿
+@{
+    Layout = null;
+
+}
+
+<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Alphtach | Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar {
+            background-color: black;
+        }
+
+            .navbar .brand-navbar img:hover {
+                opacity: 0.7;
+            }
+
+            .navbar ul {
+                padding: 0px 30px 0px 0px;
+            }
+
+                .navbar ul li a {
+                    color: white;
+                    margin: 10px 0px 0px 10px;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                }
+
+                    .navbar ul li a .fas {
+                        padding-right: 5px;
+                        padding-left: 5px;
+                    }
+
+                    .navbar ul li a:hover {
+                        color: #15b000;
+                    }
+
+                .navbar ul li.active > a {
+                    color: #15b000;
+                    font-weight: bold;
+                    font-size: 12px;
+                    border-left: 3px solid #15b000;
+                    border-radius: 40px;
+                }
+
+        .iconStyle {
+            color: #15b000;
+        }
+
+        /*=====================================Slier============================================*/
+
+
+        header .carousel-inner .item {
+            height: 100vh;
+        }
+
+        .carousel-caption {
+            padding-bottom: 130px;
+        }
+
+            .carousel-caption h1 {
+                font-size: 70px;
+                font-weight: 1000;
+                text-shadow: 3px 3px #15b000;
+                ;
+                text-transform: uppercase;
+                animation-delay: 1s;
+                animation-duration: 2s;
+            }
+
+            .carousel-caption p {
+                animation-delay: 1s;
+            }
+
+            .carousel-caption .btn {
+                animation-delay: 1s;
+                border-radius: 20px;
+                background-color: transparent;
+                border: 2px solid white;
+                color: white;
+                margin-top: 20px;
+                animation-duration: 2s;
+            }
+
+        .carousel-control-prev {
+            width: 48px;
+            height: 48px;
+            top: auto;
+            bottom: 0;
+            font-size: 2rem;
+        }
+
+        .carousel-control-next {
+            width: 48px;
+            height: 48px;
+            top: auto;
+            bottom: 0;
+            font-size: 2rem;
+        }
+
+        /*=====================================Slier============================================*/
+
+        media only screen and (max-width:480px) {
+            .carousel-caption
+
+        {
+            padding-bottom: 20px;
+        }
+
+        .carousel-caption h1 {
+            font-size: 20px;
+            font-weight: 1000;
+            text-shadow: 3px 3px #15b000;
+            ;
+            text-transform: uppercase;
+            animation-delay: 1s;
+            animation-duration: 2s;
+        }
+
+        .carousel-caption p {
+            animation-delay: 1s;
+            font-size: 10px;
+        }
+
+        .carousel-caption .btn {
+            animation-delay: 1s;
+            border-radius: 20px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-top: 5px;
+            animation-duration: 2s;
+            padding: 5px;
+            font-size: 10px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- ======================================Navigation Bar================================================= -->
+        <nav class="navbar navbar-expand-lg navStyle">
+            <a class="brand-navbar" href="#"><img src="image/logo.png" alt="Responsive image" height="60px"></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+                <span><i class="fas fa-align-right iconStyle"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ml-auto navList">
+                    <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-home"></i>HOME<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            @Ajax.ActionLink("Marca", "Index","marcas", new AjaxOptions {
+                          HttpMethod="GET",
+                          InsertionMode = InsertionMode.Replace,
+                          UpdateTargetId = "contenido_modalList",
+                      })
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            @Ajax.ActionLink("Categoria", "Index","categorias", new AjaxOptions {
+                          HttpMethod="GET",
+                          InsertionMode = InsertionMode.Replace,
+                          UpdateTargetId = "contenido_modalList",
+                      })
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            @Ajax.ActionLink("Sub Categorias", "Index","subcategorias", new AjaxOptions {
+                          HttpMethod="GET",
+                          InsertionMode = InsertionMode.Replace,
+                          UpdateTargetId = "contenido_modalList",
+                      })
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            @Ajax.ActionLink("Productos", "Index","productoes", new AjaxOptions {
+                          HttpMethod="GET",
+                          InsertionMode = InsertionMode.Replace,
+                          UpdateTargetId = "contenido_modalList",
+                      })
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            @Ajax.ActionLink("Unidad de Medida", "Index","unidaddemedidas", new AjaxOptions {
+                          HttpMethod="GET",
+                          InsertionMode = InsertionMode.Replace,
+                          UpdateTargetId = "contenido_modalList",
+                      })
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+    <div id="contenido_modalList">
+
+    </div>
+</body>
+@Scripts.Render("~/bundles/ajax")
+@Scripts.Render("~/bundles/js")
+@Scripts.Render("~/bundles/app")
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</html>

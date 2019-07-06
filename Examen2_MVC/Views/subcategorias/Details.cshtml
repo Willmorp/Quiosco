@@ -1,0 +1,34 @@
+﻿@model Examen2_MVC.Models.subcategoria
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>subcategoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombresubcategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombresubcategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoria.nombrecategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoria.nombrecategoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idsubcategoria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

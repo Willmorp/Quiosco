@@ -1,0 +1,82 @@
+﻿@model Examen2_MVC.Models.producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreproducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreproducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioorigen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioorigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioventa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioventa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marca.nombremarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca.nombremarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subcategoria.nombresubcategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subcategoria.nombresubcategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unidaddemedida.nombreunidaddemedida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unidaddemedida.nombreunidaddemedida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombreusuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.nombreusuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idproducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

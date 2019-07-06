@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Examen2_MVC.Models.producto>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreproducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioorigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioventa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca.nombremarca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subcategoria.nombresubcategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unidaddemedida.nombreunidaddemedida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario.nombreusuario)
+        </th>
+        <th>
+            Accion
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreproducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioorigen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioventa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca.nombremarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subcategoria.nombresubcategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unidaddemedida.nombreunidaddemedida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario.nombreusuario)
+        </td>
+        <td>
+            @Ajax.ActionLink("Editar", "Edit", new { @id=item.idproducto },new AjaxOptions {
+                          HttpMethod="GET",
+                          InsertionMode = InsertionMode.Replace,
+                          UpdateTargetId = "contenido_modal",
+                          OnSuccess = "abrirModal('#modal_editar_producto')",
+                      })|
+            @Ajax.ActionLink("Eliminar", "Delete",new {@id=item.idproducto }, new AjaxOptions
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "contenido_modal",
+           OnSuccess = "abrirModal('#modal_eliminar_producto')",
+
+
+       })
+        </td>
+    </tr>
+}
+
+</table>
