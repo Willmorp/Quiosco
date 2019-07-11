@@ -303,28 +303,29 @@
                                             <h6 class="card-subtitle mb-2 text-muted">@item.nombresede</h6>
                                             <h6 class="card-subtitle mb-2 text-muted">@item.empresa.direccion</h6>
                                             @*<p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>*@
-                                            <a href="https://bootsnipp.com/pradeep330" class="card-link">Mas Detalle</a>
+                                            <br />@Html.ActionLink("Tocar", "Index","productoes", new { nombre = @item.empresa.nombreempresa }, new {id=@item.nombresede })
+                                            @*<a href="@Url.Content("~/Content/imagenes/"+@item.)" class="card-link">Mas Detalle</a>*@
+                                                </div>
+                                                <img src="~/Imagen/paredbaja.png" style="width: 100%" />
+                                            </div>
                                         </div>
-                                        <img src="~/Imagen/paredbaja.png" style="width: 100%" />
                                     </div>
                                 </div>
-                            </div>
+                            }
                         </div>
-                    }
+                    </div>
                 </div>
-            </div>
-        </div>
 
-    </div>
-    <script>
-        $(document).ready(function () {
-            $('.leftmenutrigger').on('click', function (e) {
-                $('.side-nav').toggleClass("open");
-                e.preventDefault();
-            });
-        });
-    </script>
-</body>
-</html>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('.leftmenutrigger').on('click', function (e) {
+                        $('.side-nav').toggleClass("open");
+                        e.preventDefault();
+                    });
+                });
+            </script>
+        </body>
+        </html>
 
 

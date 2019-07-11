@@ -4,26 +4,67 @@
 @{
     Layout = null;
 }
-<div class="row">
-    <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header">
-                <h4>Producto</h4>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+    }
+    .titulo {
+        text-align: center;
+        margin: 36px;
+        font-size: 35px;
+    }
+    .crear {
+        background-color: white;
+        text-align: center;
+        color: black;
+        margin: 30px;
+        padding: 14px;
+        display: inline-flex;
+        border-radius: 18px;
+        border: 1px solid black;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 1px 1px 5px black;
+    }
+    
+</style>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-header">
+
+                    <h2 class="titulo"> @ViewBag.nomtienda</h2>
+                    <h2 class="titulo">Productos</h2>
+                </div>
+
+
             </div>
-            <div class="box-body">
-                @Ajax.ActionLink("Crear Producto", "Create", new AjaxOptions {
-                HttpMethod="GET",
-                InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "contenido_modal",
-                OnSuccess = "abrirModal('#modal_crear_producto')",
-                })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+
+                <div class="box-body crear">
+                    @Ajax.ActionLink("Crear Producto", "Create", new AjaxOptions {
+                    HttpMethod="GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "contenido_modal",
+                    OnSuccess = "abrirModal('#modal_crear_producto')",
+                    })
+
+                </div>
                 <div id="listar_producto">
                     @{Html.RenderPartial("List", Model);}
                 </div>
             </div>
-
         </div>
     </div>
+
 </div>
 <div id="contenido_modal"></div>
 

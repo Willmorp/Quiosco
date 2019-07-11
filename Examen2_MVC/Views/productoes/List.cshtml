@@ -1,81 +1,96 @@
 ﻿@model IEnumerable<Examen2_MVC.Models.producto>
 
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    @*<table class="table table-responsive">
+            <tr>
+                <th>
+                    Nombre
+                </th>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreproducto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.precioorigen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.precioventa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.marca.nombremarca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.subcategoria.nombresubcategoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.unidaddemedida.nombreunidaddemedida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.usuario.nombreusuario)
-        </th>
-        <th>
-            Accion
-        </th>
-    </tr>
+                <th>
+                   Precio
+                </th>
+                <th>
+                   Stock
+                </th>
+                <th>
+                    Marca
+                </th>
+                <th>
+                    Subcategoria
+                </th>
+                <th>
+                    Unidad Medida
+                </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreproducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precioorigen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precioventa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.marca.nombremarca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.subcategoria.nombresubcategoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.unidaddemedida.nombreunidaddemedida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.usuario.nombreusuario)
-        </td>
-        <td>
-            @Ajax.ActionLink("Editar", "Edit", new { @id=item.idproducto },new AjaxOptions {
-                          HttpMethod="GET",
-                          InsertionMode = InsertionMode.Replace,
-                          UpdateTargetId = "contenido_modal",
-                          OnSuccess = "abrirModal('#modal_editar_producto')",
-                      })|
-            @Ajax.ActionLink("Eliminar", "Delete",new {@id=item.idproducto }, new AjaxOptions
-       {
-           HttpMethod = "GET",
-           InsertionMode = InsertionMode.Replace,
-           UpdateTargetId = "contenido_modal",
-           OnSuccess = "abrirModal('#modal_eliminar_producto')",
+                <th>
 
+                </th>
+            </tr>
 
-       })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreproducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precioventa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca.nombremarca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.subcategoria.nombresubcategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.unidaddemedida.nombreunidaddemedida)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { @id=item.idproducto })|
+                    @Html.ActionLink("Eliminar", "Delete",new {@id=item.idproducto })
+                </td>
+            </tr>
+        }
 
-</table>
+        </table>*@
+
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+
+                        <div class="card-title">
+
+                            @*<h5 class="card-title" style="">@item.nombreproducto</h5>*@
+                            <img src="~/Imagen/toldook.png" alt="toldo" class="" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-6 col-6 mx-auto d-block">
+                                    <h6 class="card-subtitle mb-2 text-muted">@item.nombreproducto</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">@item.precioventa</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">@item.stock</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">@item.marca.nombremarca</h6>
+                                    @*<p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>*@
+                                    <br />@Html.ActionLink("Agregar", "Index", "productoes", new { id = @item.idproducto }, new { id = @item.idproducto })
+                                    @*<a href="@Url.Content("~/Content/imagenes/"+@item.)" class="card-link">Mas Detalle</a>*@
+                                </div>
+                                @*<img src="~/Imagen/paredbaja.png" style="width: 100%" />*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

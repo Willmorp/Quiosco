@@ -15,9 +15,10 @@ namespace Examen2_MVC.Controllers
         private GrupoNetEntities1 db = new GrupoNetEntities1();
 
         // GET: productoes
-        public ActionResult Index()
+        public ActionResult Index(string nombre)
         {
-            var productoes = db.productoes.Include(p => p.marca).Include(p => p.subcategoria).Include(p => p.unidaddemedida).Include(p => p.usuario);
+            @ViewBag.nomtienda = nombre;
+            var productoes = db.productoes ;
             return View(productoes.ToList());
         }
 

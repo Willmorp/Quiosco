@@ -17,11 +17,6 @@ namespace Examen2_MVC.Controllers
         // GET: Principal
         public ActionResult Index()
         {
-
-
-
-
-
             var listar= db.sedes.Include(p => p.empresa).Include(u => u.usuario);
             foreach (var item in listar)
             {
