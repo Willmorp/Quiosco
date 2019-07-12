@@ -36,26 +36,16 @@
         <div class="col-lg-12">
             <div class="box">
                 <div class="box-header">
-
                     <h2 class="titulo"> @ViewBag.nomtienda</h2>
                     <h2 class="titulo">Productos</h2>
                 </div>
-
-
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
+   
             <div class="box">
-
                 <div class="box-body crear">
-                    @Ajax.ActionLink("Crear Producto", "Create", new AjaxOptions {
-                    HttpMethod="GET",
-                    InsertionMode = InsertionMode.Replace,
-                    UpdateTargetId = "contenido_modal",
-                    OnSuccess = "abrirModal('#modal_crear_producto')",
-                    })
+                    @Html.ActionLink("Crear Producto", "Create")
 
                 </div>
                 <div id="listar_producto">
@@ -63,8 +53,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
+  
 <div id="contenido_modal"></div>
 

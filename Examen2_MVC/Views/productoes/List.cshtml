@@ -77,11 +77,10 @@
                         <div class="card-body">
                             <div class="row">
 
-                                <div class="col-md-6 col-6 mx-auto d-block">
+                                <div class="col-md-12 col-12 mx-auto d-block">
+                                    <img src="@Url.Content("~/imagen/"+item.nombreproducto+ ".png")" height="150" width="150" />
                                     <h6 class="card-subtitle mb-2 text-muted">@item.nombreproducto</h6>
                                     <h6 class="card-subtitle mb-2 text-muted">@item.precioventa</h6>
-                                    <h6 class="card-subtitle mb-2 text-muted">@item.stock</h6>
-                                    <h6 class="card-subtitle mb-2 text-muted">@item.marca.nombremarca</h6>
                                     @*<p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>*@
                                     <br />@Html.ActionLink("Agregar", "Index", "productoes", new { id = @item.idproducto }, new { id = @item.idproducto })
                                     @*<a href="@Url.Content("~/Content/imagenes/"+@item.)" class="card-link">Mas Detalle</a>*@
