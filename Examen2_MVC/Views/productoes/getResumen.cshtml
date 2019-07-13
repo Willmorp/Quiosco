@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "getResumen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FACTURACION</h2>
+<h3>
+    Nro factura: @ViewBag.factura<br />
+    Cliente       : @ViewBag.cliente<br />
+    Total a Pagar :@ViewBag.total</br>
+</h3>
+<br />@Html.ActionLink("Retornar", "getCategoria");

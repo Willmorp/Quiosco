@@ -1,0 +1,33 @@
+﻿@using Examen2_MVC.Models
+@{
+    ViewBag.Title = "getCompra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Compras> lista = (List<Compras>)Session["canasta"];
+}
+<h2>Lista compras</h2>
+<h3>cliente : @ViewBag.clinom</h3>
+<table class="table">
+    <tr>
+        <th>Codigo</th>
+        <th>Descripcion</th>
+        <th>precio unitario</th>
+        <th>cantidad</th>
+        <th>Total</th>
+    </tr>
+    @foreach (Compras x in lista)
+    {
+        <tr>
+            <td>@x.idproducto</td>
+            <td>@x.nombreproducto</td>
+            <td>@x.precioventa</td>
+            <td>@x.cantidad</td>
+            <td>@x.total</td>
+        </tr>
+    }
+    <tr>
+        <td>
+            @Html.ActionLink("Generar Factura", "getGraba");
+        </td>
+        <td>@Html.ActionLink("Cancela compra", "getCancela")</td>
+    </tr>
+</table>

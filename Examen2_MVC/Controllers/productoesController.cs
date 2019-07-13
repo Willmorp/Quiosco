@@ -144,5 +144,122 @@ namespace Examen2_MVC.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult getDeta(int id)
+        {
+            producto pr = db.productoes.Find(id);
+            //comprar el articulo seleccionado visualizar
+            Compras cp = new Compras();
+            cp.idproducto = id;
+            cp.nombreproducto = pr.nombreproducto;
+            cp.precioventa = pr.precioventa;
+            //cp.Imagen = ar.Imagen;
+            cp.stock = pr.stock;
+            cp.cantidad = 0;
+            Session["venta"] = cp;
+
+            return View(cp);
+        }
+        [HttpPost]
+        public ActionResult getDeta(Compras cp)
+        {//envia la compra para ser colocado en una lista  generica
+            List<Compras> lista;
+            Compras comp = (Compras)Session["venta"];
+            comp.cantidad = cp.cantidad;
+            if (Session["canasta"] == null)
+            {
+                lista = new List<Compras>();
+
+            }
+            else
+            {
+                lista = (List<Compras>)Session["canasta"];
+            }
+            lista.Add(comp);
+            Session["canasta"] = lista;//se actualiza la session
+            return RedirectToAction("getCompra");
+
+        }
+        public ActionResult getCompra()
+        {
+            List<Compras> lis = (List<Compras>)Session["canasta"];
+            return View(lis);
+        }
+
+        public ActionResult getDel(int nro)
+        {
+            List<Compras> lis = (List<Compras>)Session["canasta"];
+            lis.RemoveAt(nro);
+            Session["canasta"] = lis;
+            return RedirectToAction("getCompra");
+        }
+
+        public ActionResult getLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult getLogin(string usr, string pas)
+        {
+            usuario usu = db.usuarios.Find(usr.Trim());
+            string pagina = "";
+            string men = "";
+            if (usu == null)
+            {
+                men = "no existe usuario";
+            }
+            else
+            {
+                if (pas.Trim() == usu.clave.Trim())
+                {
+                    pagina = "getConfirma";
+                    Session["cliente"] = usu;
+                    return RedirectToAction(pagina);
+                }
+                else
+                {
+                    men = "Clave incorrecta";
+                }
+            }
+            ViewBag.mensaje = men;
+            return View();
+        }
+        public ActionResult getConfirma()
+        {
+            List<Compras> lis = (List<Compras>)Session["canasta"];
+            usuario usu = (usuario)Session["cliente"];
+            string nombre = usu.nombreusuario + "," + usu.sedes;
+            //ViewBag.cl nom = nombre;
+            return View(lis);
+
+        }
+        public ActionResult getGraba()
+        {
+            usuario usu = (usuario)Session["cliente"];
+            List<Compras> lista = (List<Compras>)Session["canasta"];
+            double sm = 0;
+            foreach (var cp in lista)
+            {
+                sm = sm + cp.total;
+            }
+            string fac = "";
+            //string fac = db.grabafac(usu.idusuario, (decimal)sm).FirstOrDefault();
+
+            foreach (var dt in lista)
+            {
+                //db.grabadeta(fac, dt.idusuario, dt.cantidad);
+            }
+            string clinom = usu.nombreusuario + "," + usu.sedes;
+            Session["canasta"] = null;
+            Session["cliente"] = null;
+            return RedirectToAction("getResumen", new { nro = fac, total = sm, nombre = clinom });
+        }
+        public ActionResult getResumen(string nro, double total, string nombre)
+        {
+            ViewBag.factura = nro;
+            ViewBag.total = total;
+            ViewBag.cliente = nombre;
+            return View();
+        }
     }
 }

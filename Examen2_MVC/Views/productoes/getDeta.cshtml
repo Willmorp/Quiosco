@@ -1,0 +1,70 @@
+﻿
+@using Examen2_MVC.Models
+@{
+    ViewBag.Title = "getDeta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Compras cp = (Compras)Session["venta"];
+}
+
+<h2>getDeta</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>producto</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            Idarticulo
+            <div class="col-md-10">
+                @cp.idproducto
+            </div>
+        </div>
+
+        <div class="form-group">
+            Descripcion
+            <div class="col-md-10">
+                @cp.nombreproducto
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.precioventa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @cp.precioventa
+            </div>
+        </div>
+
+        <div class="form-group">
+             Stock
+            <div class="col-md-10">
+                @cp.stock
+            </div>
+        </div>
+
+        <div class="form-group">
+            cantidad
+            <div class="col-md-10">
+                <input name="cantidad" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

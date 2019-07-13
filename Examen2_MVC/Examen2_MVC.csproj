@@ -159,6 +159,7 @@
     <Compile Include="Models\compra.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Compras.cs" />
     <Compile Include="Models\comunicacion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -349,6 +350,11 @@
     <Content Include="Views\categorias\List.cshtml" />
     <Content Include="Views\subcategorias\List.cshtml" />
     <Content Include="Views\productoes\List.cshtml" />
+    <Content Include="Views\productoes\getDeta.cshtml" />
+    <Content Include="Views\productoes\getCompra.cshtml" />
+    <Content Include="Views\productoes\getLogin.cshtml" />
+    <Content Include="Views\productoes\getConfirma.cshtml" />
+    <Content Include="Views\productoes\getResumen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

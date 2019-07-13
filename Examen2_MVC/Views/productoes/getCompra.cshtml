@@ -1,0 +1,45 @@
+﻿@using Examen2_MVC.Models
+@{
+    ViewBag.Title = "getCompra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Compras> lista = (List<Compras>)Session["canasta"];
+
+}
+
+<h2>Lista compras</h2>
+<table class="table">
+    <tr>
+        <th>Codigo</th>
+        <th>Descripcion</th>
+        <th>precio unitario</th>
+        <th>cantidad</th>
+        <th>Total</th>
+        <th>Imagen</th>
+        <th>Del</th>
+    </tr>
+    @{
+        int cuenta = 0;
+        foreach (Compras x in lista)
+        {
+            <tr>
+                <td>@x.idproducto</td>
+                <td>@x.nombreproducto</td>
+                <td>@x.precioventa</td>
+                <td>@x.cantidad</td>
+                <td>@x.total</td>
+                <td>
+                    <img src="@Url.Content("~/Content/images/"+@x.nombreproducto+".png")" width="100"
+                         height="100" />
+                </td>
+                <td>@Html.ActionLink("Del", "getDel", new { nro = cuenta }) </td>
+            </tr>
+            cuenta++;
+        }
+    }
+    <tr>
+        <td>
+            @Html.ActionLink("seguir comprando", "getCategoria");
+        </td>
+        <td>@Html.ActionLink("Aceptar compra", "getLogin")</td>
+    </tr>
+</table>
